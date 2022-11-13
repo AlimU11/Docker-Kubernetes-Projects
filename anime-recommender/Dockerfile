@@ -12,6 +12,10 @@ RUN pip install waitress && \
 RUN cd /Anime-Recommender && \
     python main_etl.py
 
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+
+USER appuser
+
 WORKDIR /Anime-Recommender
 
 EXPOSE 8080
